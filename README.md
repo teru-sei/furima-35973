@@ -65,4 +65,4 @@
 
 ### Association
 
--has_one :purchase
+- has_one :purchase
