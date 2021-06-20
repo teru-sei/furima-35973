@@ -43,10 +43,6 @@
 
 | Column          | Type       | Options                        |
 | --------------- | ---------- | ------------------------------ |
-| credit_number   | string     | null: false                    |
-| deadline_month  | integer    | null: false                    |
-| deadline_year   | integer    | null: false                    |
-| security_code   | integer    | null: false                    |
 | post_code       | string     | null: false                    |
 | prefecture_id   | integer    | null: false                    |
 | city            | string     | null: false                    |
