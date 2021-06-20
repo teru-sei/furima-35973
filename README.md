@@ -2,18 +2,19 @@
 
 ## users テーブル
 
-| Column                          | Type   | Options     |
-| ------------------------------- | ------ | ----------- |
-| nickname                        | string  | null: false |
-| email                           | string  | null: false |
-| encrypted_password              | string  | null: false |
-| last_name                       | string  | null: false |
-| first_name                      | string  | null: false |
-| last_name_ka                    | string  | null: false |
-| first_name_ka                   | string  | null: false |
-| birth_year_id                   | integer | null: false |
-| birth_month_id                  | integer | null: false |
-| birth_day_id                    | integer | null: false |
+| Column                          | Type   | Options                     |
+| ------------------------------- | ------ | --------------------------- |
+| nickname                        | string  | null: false                |
+| email                           | string  | null: false, unique:: true |
+| encrypted_password              | string  | null: false                |
+| encrypted_password_confirmation | string  | null: false                |
+| last_name                       | string  | null: false                |
+| first_name                      | string  | null: false                |
+| last_name_ka                    | string  | null: false                |
+| first_name_ka                   | string  | null: false                |
+| birth_year_id                   | integer | null: false                |
+| birth_month_id                  | integer | null: false                |
+| birth_day_id                    | integer | null: false                |
 
 ### Association
 
