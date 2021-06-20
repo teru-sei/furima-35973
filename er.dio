@@ -1,6 +1,6 @@
 <mxfile>
     <diagram id="aJB1gV00-oBXdw-YKK2M" name="ページ1">
-        <mxGraphModel dx="1151" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="699" dy="680" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -38,7 +38,7 @@
                     </mxGeometry>
                 </mxCell>
                 <mxCell id="82" value="purchases" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="60" y="400" width="160" height="116" as="geometry"/>
+                    <mxGeometry x="60" y="410" width="160" height="116" as="geometry"/>
                 </mxCell>
                 <mxCell id="86" value="&lt;span&gt;post_code&lt;/span&gt;&lt;br&gt;&lt;span&gt;prefecture_id&lt;/span&gt;&lt;br&gt;&lt;span&gt;city&lt;/span&gt;&lt;br&gt;&lt;span&gt;address&lt;br&gt;&lt;/span&gt;building&lt;br&gt;&lt;span&gt;phone_number&lt;/span&gt;" style="text;html=1;align=left;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="82">
                     <mxGeometry y="26" width="160" height="90" as="geometry"/>
