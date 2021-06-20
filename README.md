@@ -36,7 +36,7 @@
 ### Association
 
 - belongs_to :user
-- belongs_to :purchase
+- has_one :purchase
 
 
 ## purchases テーブル
@@ -49,12 +49,12 @@
 | address         | string     | null: false                    |
 | building        | string     |                                |         
 | phone_number    | string     | null: false                    |
+| purchase-history | references | null: false, foreign_key: true|
 
 ### Association
 
-- belongs_to :user
-- has_one :item
 - belongs to :purchase_history
+
 
 ## purchase_hisrotys テーブル
 
