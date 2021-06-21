@@ -66,5 +66,5 @@
 ### Association
 
 - belongs to :user
-- has_one :item
+- belongs_to :item
 - has_one :purchase
