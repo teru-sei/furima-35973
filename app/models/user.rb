@@ -6,7 +6,10 @@ class User < ApplicationRecord
 
   validates :nickname,           presence: true
   validates :email,              presence: true
-  validates :password,           presence: true, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/ }
+  with_options presence: true, length: { minimum: 6 }, format: { with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/, message: 'is invalid. Include both letters and numbers' } do
+    validates :password
+  end
+
   validates :birthday,           presence: true
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]/, message: 'is invalid. Input full-width characters' } do
