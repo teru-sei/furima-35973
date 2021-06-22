@@ -5,9 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   with_options presence: true do
-    validates :nickname,           presence: true
-    validates :email,              presence: true
-    validates :birthday,           presence: true
+    validates :nickname
+    validates :email
+    validates :birthday
 
     with_options length: { minimum: 6 }, format: { with: /\A(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}+\z/, message: 'is invalid. Include both letters and numbers' } do
       validates :password
