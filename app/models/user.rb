@@ -6,12 +6,18 @@ class User < ApplicationRecord
 
   validates :nickname,           presence: true
   validates :email,              presence: true
-  validates :password,           presence: true, format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{7,}/, message: "is invalid. Include both letters and numbers"}
-  validates :last_name,          presence: true, format:{with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters"}
-  validates :first_name,         presence: true, format:{with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters"}
-  validates :last_name_ka,       presence: true, format:{with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters"}
-  validates :first_name_ka,      presence: true, format:{with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters"}
+  validates :password,           presence: true, length:{minimum:6},format:{with: /(?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]{6,}/}
   validates :birthday,           presence: true
+
+  with_options presence: true, format:{with: /\A[ぁ-んァ-ン一-龥]/, message: "is invalid. Input full-width characters"} do
+    validates :last_name
+    validates :first_name
+  end
+
+  with_options presence: true, format:{with: /\A[ァ-ヶー－]+\z/, message: "is invalid. Input full-width katakana characters"} do
+    validates :last_name_ka
+    validates :first_name_ka
+  end
 
   has_many :items
   has_many :purchases
