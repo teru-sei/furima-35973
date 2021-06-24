@@ -10,7 +10,7 @@ RSpec.describe Item, type: :model do
       it 'image,item_name,item_description,category_id,condition_id,delivery_price_id,delivery_day_id,prefecture_id,item_priceが存在すれば出品できる' do
         expect(@item).to be_valid
       end
-      it 'item_priceが ¥300~¥9,999,999 の半角数値のみなら登録できる' do
+      it 'item_priceが300~9999999の半角数値のみなら登録できる' do
         item_price = '100000'
         expect(@item).to be_valid
       end
@@ -60,6 +60,11 @@ RSpec.describe Item, type: :model do
         @item.item_price = ''
         @item.valid?
         expect(@item.errors.full_messages).to include("Item price can't be blank")
+      end
+      it 'item_priceが300~9999999でないとき' do
+        @item.item_price = '100000000000000'
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Item price is out of setting range")
       end
     end    
   end

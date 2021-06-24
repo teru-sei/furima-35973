@@ -15,9 +15,9 @@ class Item < ApplicationRecord
     validates :delivery_price_id
     validates :delivery_day_id
     validates :prefecture_id
-    validates :item_price
+    validates :item_price, numericality: {only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'is out of setting range' }
 
-    with_options numericality: { other_than: 1 } do
+    with_options numericality: { other_than: 1, message: "can't be blank" } do
       validates :category_id
       validates :condition_id
       validates :delivery_price_id
