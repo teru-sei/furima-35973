@@ -34,27 +34,27 @@ RSpec.describe Item, type: :model do
       it 'category_idが1のとき' do
         @item.category_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Category must be other than 1")
+        expect(@item.errors.full_messages).to include("Category can't be blank")
       end
       it 'condition_idが1のとき' do
         @item.condition_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Condition must be other than 1")
+        expect(@item.errors.full_messages).to include("Condition can't be blank")
       end
       it 'delivery_price_idが1のとき' do
         @item.delivery_price_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery price must be other than 1")
+        expect(@item.errors.full_messages).to include("Delivery price can't be blank")
       end
       it 'delivery_day_idが1のとき' do
         @item.delivery_day_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Delivery day must be other than 1")
+        expect(@item.errors.full_messages).to include("Delivery day can't be blank")
       end
       it 'prefecture_idが1のとき' do
         @item.prefecture_id = 1
         @item.valid?
-        expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
+        expect(@item.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'item_priceが空のとき' do
         @item.item_price = ''
