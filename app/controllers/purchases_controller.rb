@@ -1,10 +1,9 @@
 class PurchasesController < ApplicationController
   def index
-    @purchase = Purchase.new
   end
 
   def create
-    @purchase = Purchase.new(order_params)
+    @purchase = Purchase.new(purchase_params)
     if @opurchase.valid?
       @purchase.save
       return redirect_to root_path
@@ -15,7 +14,7 @@ class PurchasesController < ApplicationController
 
   private
 
-  def order_params
-    params.require(:purchase).permit(:price)
+  def purchase_params
+    params.require(:purchase).permit(:post_code, :prefecture_id, :city, :address, :phone_number)
   end
 end
