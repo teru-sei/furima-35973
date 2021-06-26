@@ -4,11 +4,11 @@ class Purchase < ApplicationRecord
 
   with_options presence: true do
     validates :post_code
-    validates :prefecture_id { other_than: 1, message: "can't be blank" }
+    validates :prefecture_id, numericality: { other_than: 1, message: "can't be blank" }
     validates :city
     validates :address
     validates :phone_number
   end
 
-  belongs to :purchase_history
+  #belongs to :purchase_history
 end
