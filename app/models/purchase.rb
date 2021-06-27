@@ -12,5 +12,5 @@ class Purchase < ApplicationRecord
     validates :token
   end
 
-  belongs to :purchase_history
+  belongs_to :purchase_history
 end
