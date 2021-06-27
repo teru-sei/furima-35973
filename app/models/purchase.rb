@@ -1,4 +1,5 @@
 class Purchase < ApplicationRecord
+  attr_accessor :token, :item_id
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
 
@@ -8,6 +9,7 @@ class Purchase < ApplicationRecord
     validates :city
     validates :address
     validates :phone_number
+    validates :token
   end
 
   #belongs to :purchase_history
