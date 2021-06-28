@@ -1,5 +1,4 @@
 class Item < ApplicationRecord
-  attr_accessor :user_id
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :category
   belongs_to :condition
