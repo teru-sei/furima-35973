@@ -17,7 +17,11 @@ RSpec.describe Purchase, type: :model do
         @purchase_history_purchase.post_code = '234-5678'
         expect(@purchase_history_purchase).to be_valid
       end
-      it 'phone_numberが10桁以上の半角数値のみのとき購入できる' do
+      it 'buildingが空でも購入できる' do
+        @purchase_history_purchase.building = ''
+        expect(@purchase_history_purchase).to be_valid
+      end
+      it 'phone_numberが10桁か11桁の半角数値のみのとき購入できる' do
         @purchase_history_purchase.phone_number = '0123456789'
         expect(@purchase_history_purchase).to be_valid
       end
@@ -57,6 +61,11 @@ RSpec.describe Purchase, type: :model do
         @purchase_history_purchase.phone_number = '01234567'
         @purchase_history_purchase.valid?
         expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is too short')
+      end
+      it 'phone_numberが12桁以上のとき購入できない' do
+        @purchase_history_purchase.phone_number = '012345678901'
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
       it 'phone_numberが半角数値以外のとき購入できない' do
         @purchase_history_purchase.phone_number = '１２３４５６７８９０'
