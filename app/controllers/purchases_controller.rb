@@ -1,4 +1,6 @@
 class PurchasesController < ApplicationController
+  before_action :move_to_index, only: :index
+
   def index
     @item = Item.find(params[:item_id])
   end
@@ -28,5 +30,11 @@ class PurchasesController < ApplicationController
       card: purchase_params[:token],
       currency: 'jpy'
     )
+  end
+
+  def move_to_index
+    unless @item.purchase_history.present?
+      redirect_to root_path
+    end
   end
 end
