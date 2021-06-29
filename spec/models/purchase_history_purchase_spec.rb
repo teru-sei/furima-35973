@@ -24,10 +24,14 @@ RSpec.describe Purchase, type: :model do
     end
     context '商品購入できない時' do
       it 'post_codeが空のとき購入できない' do
-        
+        @purchase_history_purchase.post_code = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Post code can't be blank")
       end
       it 'post_codeが３桁ハイフン4桁の半角文字列でないとき購入できない' do
-        
+        @purchase_history_purchase.post_code = '1234567'
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Post code is invalid. Enter it as follows (e.g. 123-4567)")
       end
       it 'prefecture_idが1のとき' do
         @purchase_history_purchase.prefecture_id = 1
@@ -35,19 +39,29 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase_history_purchase.errors.full_messages).to include("Prefecture can't be blank")
       end
       it 'cityが空のとき購入できない' do
-        
+        @purchase_history_purchase.city = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("City can't be blank")
       end
       it 'addressが空のとき購入できない' do
-        
+        @purchase_history_purchase.address= ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Address can't be blank")
       end
       it 'phone_numberが空のとき購入できない' do
-        
+        @purchase_history_purchase.phone_number = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが9桁以下のとき購入できない' do
-        
+        @purchase_history_purchase.phone_number = '01234567'
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Phone number is too short")
       end
       it 'phone_numberが半角数値以外のとき購入できない' do
-        
+        @purchase_history_purchase.phone_number = '１２３４５６７８９０'
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Phone number is invalid. Input only number")
       end
     end
   end
