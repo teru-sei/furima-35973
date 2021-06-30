@@ -10,6 +10,7 @@ class PurchaseHistoriesController < ApplicationController
   def create
     @purchase_history_purchase = PurchaseHistoryPurchase.new(purchase_history_params)
     if @purchase_history_purchase.valid?
+      pay_item
       @purchase_history_purchase.save
       redirect_to root_path
     else
@@ -25,5 +26,14 @@ class PurchaseHistoriesController < ApplicationController
 
   def set_purchase_history
     @item = Item.find(params[:item_id])
+  end
+
+  def pay_item
+    Payjp.api_key = ENV['PAYJP_SECRET_KEY']
+    Payjp::Charge.create(
+      amount: @item.item_price,
+      card: purchase_history_params[:token],
+      currency: 'jpy'
+    )
   end
 end

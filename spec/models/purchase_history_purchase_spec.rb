@@ -58,14 +58,14 @@ RSpec.describe Purchase, type: :model do
         expect(@purchase_history_purchase.errors.full_messages).to include("Phone number can't be blank")
       end
       it 'phone_numberが9桁以下のとき購入できない' do
-        @purchase_history_purchase.phone_number = '01234567'
+        @purchase_history_purchase.phone_number = '0123456'
         @purchase_history_purchase.valid?
         expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is too short')
       end
       it 'phone_numberが12桁以上のとき購入できない' do
         @purchase_history_purchase.phone_number = '012345678901'
         @purchase_history_purchase.valid?
-        expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is invalid. Input only number')
+        expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is too long')
       end
       it 'phone_numberが半角数値以外のとき購入できない' do
         @purchase_history_purchase.phone_number = '１２３４５６７８９０'

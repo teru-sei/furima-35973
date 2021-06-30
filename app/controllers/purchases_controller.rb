@@ -33,8 +33,6 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_index
-    unless @item.purchase_history.present?
-      redirect_to root_path
-    end
+    redirect_to root_path unless @item.purchase_history.present?
   end
 end
