@@ -3,7 +3,7 @@ class PurchaseHistoriesController < ApplicationController
   before_action :set_purchase_history
 
   def index
-    redirect_to root_path if current_user.id == @item.user.id || @purchase_history_id.nil?
+    redirect_to root_path if current_user.id == @item.user.id || @item.purchase_history.blank?
     @purchase_history_purchase = PurchaseHistoryPurchase.new
   end
 
