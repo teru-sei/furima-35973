@@ -72,6 +72,21 @@ RSpec.describe Purchase, type: :model do
         @purchase_history_purchase.valid?
         expect(@purchase_history_purchase.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
+      it 'tokenが空のとき購入できない' do
+        @purchase_history_purchase.token = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Token can't be blank")
+      end
+      it 'user_idが空のとき購入できない' do
+        @purchase_history_purchase.user_id = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("User can't be blank")
+      end
+      it 'item_idが空のとき購入できない' do
+        @purchase_history_purchase.item_id = ''
+        @purchase_history_purchase.valid?
+        expect(@purchase_history_purchase.errors.full_messages).to include("Item can't be blank")
+      end
     end
   end
 end
